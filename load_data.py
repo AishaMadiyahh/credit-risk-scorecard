@@ -12,6 +12,10 @@ connection = pyodbc.connect(connection_string) #actually does the opeining of th
 
 query = "select * from credit_applications"
 df = pd.read_sql(query, connection) #runs the query and stores the result in a pandas dataframe
+df = df.drop(columns=["column1"])
+
 
 print(df.head())
 print("Shape:", df.shape)
+
+print(df.info()) #gives me a summary of the df
